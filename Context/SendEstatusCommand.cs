@@ -45,6 +45,7 @@ namespace api_status_liverpool.Context
             using (var client = new HttpClient())
             {
                 client.DefaultRequestHeaders.Add("apikey", "m1czD4yuaJKjdpBNe1Ad6j4Rv1g1ZyoXAK2wVemtLXSoFeH2");
+                client.DefaultRequestHeaders.UserAgent.ParseAdd("Taimingo-4PL/1.0");
                 var httpResponse = client.PostAsync(url, content).Result;
                 var res = httpResponse.Content.ReadAsStringAsync().Result;
                 return JsonSerializer.Deserialize<ReplyLiverpool>(res);

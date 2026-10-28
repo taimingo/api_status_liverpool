@@ -99,6 +99,7 @@ namespace api_status_liverpool.Controllers
                     using (var request = new HttpRequestMessage(new HttpMethod("POST"), "https://apigee-pro.liverpool.com.mx/liverpool/4pl/api/estatus"))
                     {
                         request.Headers.TryAddWithoutValidation("Apikey","kFGGSVW3R8jO9h7HjbFaR2kX7JFB5A9URRFpoNESBNXh2Es2");
+                        request.Headers.TryAddWithoutValidation("User-Agent", "Taimingo-4PL/1.0");
                         request.Content = new StringContent("{\n\"thirdPL\":\"ACP\",\n\"tn_reference\":\""+tokens[0]+"\",\n\"estimated_delivery_date\":\""+fecha1+"\",\n\"tracking_number\":\""+odatos.Guide+"\",\n\"code\":\""+odatos.Status_Code+"\",\n\"commen\":\"Ok\",\n\"date\":\""+fecha2+"\"\n}");
                         request.Content.Headers.ContentType = MediaTypeHeaderValue.Parse("application/json");
                          
